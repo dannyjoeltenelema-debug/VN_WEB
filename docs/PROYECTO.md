@@ -90,10 +90,28 @@ Hosting compartido con cPanel: MySQL 8.0.16+ o MariaDB 10.4+. Cron de cPanel eje
 ## Forma de trabajo
 - Trabajar **una fase a la vez**, la que indique el prompt. No adelantar fases.
 - Cada fase en su propia rama de Git (`fase-N-nombre`). No hacer commit ni push sin que yo lo pida.
+- **Ramas** (ver "Flujo de ramas" más abajo): `main` = producción, `develop` = desarrollo; nunca trabajar directamente en ninguna de las dos.
 - Nunca subir `.env`, credenciales ni archivos de `storage/` con datos de postulantes.
 - Antes de cambios grandes, presentar el plan y esperar aprobación.
 - Al terminar una fase: ejecutar las migraciones/pruebas correspondientes, resumir qué se hizo y qué falta.
 - Código, comentarios y textos de interfaz en español.
+
+## Flujo de ramas
+| Rama | Uso | Recibe cambios de |
+|---|---|---|
+| `main` | Producción. Lo que está aquí es lo que corre en el hosting. | Solo `develop` (al publicar una versión) o una corrección urgente. |
+| `develop` | Desarrollo e integración. Aquí se juntan los cambios de todos. | Ramas de trabajo, mediante Pull Request. |
+| `fase-N-nombre` | Una rama corta por fase o tarea, de cualquier desarrollador (ej. `fase-1-migraciones`, `fase-4-anuncios`). Para correcciones o tareas fuera de una fase: nombre corto y descriptivo (ej. `correccion-correo-cita`). | — |
+
+Pasos para cada cambio:
+1. Actualizar `develop`: `git checkout develop` y `git pull`.
+2. Crear la rama de trabajo desde `develop`: `git checkout -b fase-N-nombre`.
+3. Hacer commits pequeños y subir la rama: `git push -u origin fase-N-nombre`.
+4. Abrir un Pull Request en GitHub **hacia `develop`**; otra persona lo revisa antes de fusionar.
+5. Borrar la rama de trabajo una vez fusionada.
+6. Publicar en producción: Pull Request de `develop` hacia `main`, solo cuando `develop` esté probado.
+
+Corrección urgente en producción: rama desde `main`, Pull Request hacia `main` y luego fusionar `main` en `develop` para no perder el arreglo.
 
 ## Fases
 1. Migraciones, seeders y enums a partir del script SQL.
