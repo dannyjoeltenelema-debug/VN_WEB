@@ -3,6 +3,10 @@
 Proyecto Laravel con MySQL. Página **informativa** con solo tres funcionalidades dinámicas.
 El análisis y diseño se hacen fuera de este repositorio; aquí se implementa lo ya decidido.
 Este archivo se importa desde `CLAUDE.md` y es la referencia principal del proyecto.
+
+Documentos obligatorios que complementan este archivo:
+@docs/ESTANDARES.md
+@docs/ui/GUIA-UI.md
 **No agregues tablas, módulos ni funcionalidades que no estén en este archivo.** Si algo
 no está definido, pregunta antes de inventarlo.
 
@@ -12,8 +16,8 @@ no está definido, pregunta antes de inventarlo.
 - **Base de datos:** MySQL, base `vn_web` (configurada en `.env`).
 - **Entorno local:** Laragon. **Control de versiones:** Git + GitHub.
 - **Frontend:** Bootstrap 5 por **CDN** (no usar Vite, npm ni Tailwind salvo que se pida).
-  Iconos: Bootstrap Icons por CDN, con moderación. Interfaz limpia y adaptable a móvil.
-- **Interactividad:** JavaScript vanilla con `fetch` (jQuery permitido si simplifica algo).
+  Iconos: solo Bootstrap Icons por CDN, con moderación. Fuentes: Plus Jakarta Sans y Playfair Display (Google Fonts).
+- **Interactividad:** JavaScript vanilla con módulos ES y `fetch`. **Sin jQuery.**
   El agendamiento de citas consulta los turnos disponibles por AJAX sin recargar la página;
   los endpoints devuelven JSON y validan con Form Requests.
 - No agregar paquetes de Composer ni librerías nuevas sin consultarlo antes.
@@ -90,36 +94,19 @@ Hosting compartido con cPanel: MySQL 8.0.16+ o MariaDB 10.4+. Cron de cPanel eje
 ## Forma de trabajo
 - Trabajar **una fase a la vez**, la que indique el prompt. No adelantar fases.
 - Cada fase en su propia rama de Git (`fase-N-nombre`). No hacer commit ni push sin que yo lo pida.
-- **Ramas** (ver "Flujo de ramas" más abajo): `main` = producción, `develop` = desarrollo; nunca trabajar directamente en ninguna de las dos.
 - Nunca subir `.env`, credenciales ni archivos de `storage/` con datos de postulantes.
 - Antes de cambios grandes, presentar el plan y esperar aprobación.
 - Al terminar una fase: ejecutar las migraciones/pruebas correspondientes, resumir qué se hizo y qué falta.
 - Código, comentarios y textos de interfaz en español.
 
-## Flujo de ramas
-| Rama | Uso | Recibe cambios de |
-|---|---|---|
-| `main` | Producción. Lo que está aquí es lo que corre en el hosting. | Solo `develop` (al publicar una versión) o una corrección urgente. |
-| `develop` | Desarrollo e integración. Aquí se juntan los cambios de todos. | Ramas de trabajo, mediante Pull Request. |
-| `fase-N-nombre` | Una rama corta por fase o tarea, de cualquier desarrollador (ej. `fase-1-migraciones`, `fase-4-anuncios`). Para correcciones o tareas fuera de una fase: nombre corto y descriptivo (ej. `correccion-correo-cita`). | — |
-
-Pasos para cada cambio:
-1. Actualizar `develop`: `git checkout develop` y `git pull`.
-2. Crear la rama de trabajo desde `develop`: `git checkout -b fase-N-nombre`.
-3. Hacer commits pequeños y subir la rama: `git push -u origin fase-N-nombre`.
-4. Abrir un Pull Request en GitHub **hacia `develop`**; otra persona lo revisa antes de fusionar.
-5. Borrar la rama de trabajo una vez fusionada.
-6. Publicar en producción: Pull Request de `develop` hacia `main`, solo cuando `develop` esté probado.
-
-Corrección urgente en producción: rama desde `main`, Pull Request hacia `main` y luego fusionar `main` en `develop` para no perder el arreglo.
-
 ## Fases
-1. Migraciones, seeders y enums a partir del script SQL.
-2. Modelos Eloquent con relaciones y casts.
-3. Autenticación del panel y autorización por rol.
-4. Módulo de anuncios.
-5. Trabaja con nosotros (ofertas, postulaciones, puntuación por reglas).
-6. Citas (cálculo de turnos disponibles, reserva pública, panel por departamento).
-7. Tareas programadas (anuncios vencidos, feriados).
-8. Páginas informativas.
-9. (Futuro) Puntuación con IA.
+1. ✅ Migraciones, seeders y enums a partir del script SQL.
+2. Frontend público: base visual (tokens, layout, componentes) y páginas estáticas.
+3. Frontend público de las funcionalidades: anuncios, agendar cita, trabaja con nosotros (interfaz y JS, sin guardar datos).
+4. Backend público: modelos, servicios, endpoints AJAX, guardado de citas y postulaciones, correos.
+5. Panel: autenticación, autorización por rol y layout del panel.
+6. Panel: anuncios.
+7. Panel: citas y configuración de agenda (departamentos, horarios, bloqueos).
+8. Panel: ofertas laborales y postulaciones (puntuación por reglas).
+9. Tareas programadas (anuncios vencidos, feriados) y endurecimiento de seguridad.
+10. (Futuro) Puntuación con IA.

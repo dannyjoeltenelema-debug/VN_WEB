@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Agendar cita — U.E. Vida Nueva</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#faf8f4}
+a{color:#113f32}a:hover{color:#0b2a21}
+input,select,textarea,button{font-family:inherit}
+.vn-step-label{display:inline}
+@media (max-width: 760px){.vn-step-label{display:none}.vn-title{font-size:34px !important}}
+</style>
+</helmet>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #1f2a26; background: #faf8f4; width: 100%; min-height: 1300px">
+
+<header style="background: #ffffff; border-bottom: 1px solid #e8ece9">
+<div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<img src="/_blob/48735089b6f6eabe4ae27f9568c01e80" alt="Logo Unidad Educativa Vida Nueva" style="width: 44px; height: 44px; object-fit: contain">
+<span style="display: flex; flex-direction: column; line-height: 1.15">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Unidad Educativa</span>
+<span style="font-size: 17px; font-weight: 800; color: #113f32">Vida Nueva</span>
+</span>
+</a>
+<a href="Main.dc.html" style="font-size: 14px; font-weight: 600; text-decoration: none; color: #113f32; display: flex; align-items: center; gap: 6px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Volver al inicio</a>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 72px; display: flex; flex-direction: column; gap: 32px">
+
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Citas en línea</span>
+<h1 class="vn-title" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 44px; line-height: 1.15; font-weight: 800; color: #16241f">Agenda tu cita con nuestros departamentos</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4d5a55">Sin crear cuenta. Elige el departamento, el día y la hora, y recibirás la confirmación en tu correo.</p>
+</div>
+
+<ol aria-label="Pasos para agendar" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
+<li style="flex: 1 1 140px; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: {{st.bg}}; border: 1px solid {{st.border}}">
+<span style="width: 30px; height: 30px; border-radius: 999px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; background: {{st.dotBg}}; color: {{st.dotColor}}">{{st.num}}</span>
+<span class="vn-step-label" style="font-size: 14px; font-weight: 700; color: {{st.color}}">{{st.label}}</span>
+</li>
+</sc-for>
+</ol>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px">
+
+<section style="flex: 999 1 560px; min-width: 0; background: #ffffff; border: 1px solid #e8ece9; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 28px">
+
+<!-- PASO 1 -->
+<sc-if value="{{s1}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #113f32">1. Elige la sucursal</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<button type="button" aria-pressed="true" style="text-align: left; padding: 18px; border-radius: 16px; border: 2px solid #113f32; background: #f2f7f4; cursor: pointer; display: flex; flex-direction: column; gap: 4px">
+<strong style="font-size: 16px; color: #113f32">Quito</strong>
+<span style="font-size: 13px; color: #4d5a55">Lunes a viernes · 14:00 a 15:20</span>
+</button>
+<button type="button" disabled="" style="text-align: left; padding: 18px; border-radius: 16px; border: 1px dashed #cfd6d3; background: #f8f9fa; cursor: not-allowed; display: flex; flex-direction: column; gap: 4px">
+<strong style="font-size: 16px; color: #5b6662">Cojimíes</strong>
+<span style="font-size: 13px; color: #5b6662">Citas en línea próximamente</span>
+</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #113f32">2. Elige el departamento</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+<sc-for list="{{depts}}" as="d" hint-placeholder-count="4">
+<button type="button" onClick="{{d.pick}}" aria-pressed="{{d.sel}}" style="text-align: left; padding: 18px; border-radius: 16px; border: {{d.border}}; background: {{d.bg}}; cursor: pointer; display: flex; gap: 14px; align-items: flex-start">
+<span style="width: 40px; height: 40px; border-radius: 12px; background: #eef3f0; flex-shrink: 0; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#113f32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px">
+<strong style="font-size: 16px; color: #113f32">{{d.name}}</strong>
+<span style="font-size: 13px; line-height: 1.5; color: #4d5a55">{{d.desc}}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- PASO 2 -->
+<sc-if value="{{s2}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #113f32">Elige el día</h2>
+<span style="font-size: 13px; color: #5b6662">Hasta 14 días hacia adelante · lunes a viernes</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 10px">
+<sc-for list="{{dates}}" as="dt" hint-placeholder-count="11">
+<button type="button" onClick="{{dt.pick}}" disabled="{{dt.off}}" aria-pressed="{{dt.sel}}" aria-label="{{dt.aria}}" style="padding: 12px 6px; border-radius: 14px; border: {{dt.border}}; background: {{dt.bg}}; cursor: {{dt.cursor}}; display: flex; flex-direction: column; align-items: center; gap: 2px">
+<span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: {{dt.sub}}">{{dt.dow}}</span>
+<strong style="font-size: 22px; color: {{dt.color}}">{{dt.day}}</strong>
+<span style="font-size: 11px; color: {{dt.sub}}">{{dt.note}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{hasDate}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #113f32">Elige la hora</h2>
+<span style="font-size: 13px; color: #5b6662">Turnos de 15 minutos · se actualiza al momento</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px">
+<sc-for list="{{slots}}" as="sl" hint-placeholder-count="5">
+<button type="button" onClick="{{sl.pick}}" disabled="{{sl.off}}" aria-pressed="{{sl.sel}}" style="padding: 14px; border-radius: 14px; border: {{sl.border}}; background: {{sl.bg}}; cursor: {{sl.cursor}}; display: flex; flex-direction: column; align-items: center; gap: 4px">
+<strong style="font-size: 18px; color: {{sl.color}}">{{sl.time}}</strong>
+<span style="font-size: 12px; font-weight: 600; color: {{sl.sub}}">{{sl.note}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- PASO 3 -->
+<sc-if value="{{s3}}" hint-placeholder-val="{{false}}">
+<form style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #113f32">Tus datos</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Tipo de identificación
+<select value="{{f.tipo}}" onChange="{{on.tipo}}" style="height: 48px; padding: 0 12px; border: 1px solid #cfd6d3; border-radius: 12px; font-size: 15px; background: #ffffff; color: #1f2a26">
+<option value="CEDULA">Cédula</option>
+<option value="PASAPORTE">Pasaporte</option>
+</select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Número de identificación
+<input type="text" value="{{f.id}}" onChange="{{on.id}}" placeholder="Ej. 1712345678" style="height: 48px; padding: 0 14px; border: 1px solid {{bd.id}}; border-radius: 12px; font-size: 15px; color: #1f2a26">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Nombres
+<input type="text" value="{{f.nombres}}" onChange="{{on.nombres}}" style="height: 48px; padding: 0 14px; border: 1px solid {{bd.nombres}}; border-radius: 12px; font-size: 15px; color: #1f2a26">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Apellidos
+<input type="text" value="{{f.apellidos}}" onChange="{{on.apellidos}}" style="height: 48px; padding: 0 14px; border: 1px solid {{bd.apellidos}}; border-radius: 12px; font-size: 15px; color: #1f2a26">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Correo electrónico
+<input type="email" value="{{f.email}}" onChange="{{on.email}}" placeholder="nombre@correo.com" style="height: 48px; padding: 0 14px; border: 1px solid {{bd.email}}; border-radius: 12px; font-size: 15px; color: #1f2a26">
+</label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Teléfono celular
+<input type="tel" value="{{f.tel}}" onChange="{{on.tel}}" placeholder="09XXXXXXXX" style="height: 48px; padding: 0 14px; border: 1px solid {{bd.tel}}; border-radius: 12px; font-size: 15px; color: #1f2a26">
+</label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #34413c">Motivo de la cita
+<textarea value="{{f.motivo}}" onChange="{{on.motivo}}" rows="4" placeholder="Cuéntanos brevemente el motivo (máx. 500 caracteres)" style="padding: 12px 14px; border: 1px solid {{bd.motivo}}; border-radius: 12px; font-size: 15px; line-height: 1.5; resize: vertical; color: #1f2a26"></textarea>
+</label>
+<label style="display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.55; color: #34413c; cursor: pointer">
+<input type="checkbox" checked="{{f.acepta}}" onChange="{{on.acepta}}" style="width: 20px; height: 20px; margin-top: 2px; accent-color: #113f32; flex-shrink: 0">
+<span>Acepto que la institución use mis datos únicamente para gestionar esta cita, según la Ley Orgánica de Protección de Datos Personales.</span>
+</label>
+<sc-if value="{{showErr}}" hint-placeholder-val="{{false}}">
+<p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #fdf0ef; border: 1px solid #f1c9c5; font-size: 14px; color: #a12a1f">{{errMsg}}</p>
+</sc-if>
+</form>
+</sc-if>
+
+<!-- PASO 4 -->
+<sc-if value="{{s4}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 24px 8px">
+<span style="width: 72px; height: 72px; border-radius: 999px; background: #e6eee9; display: flex; align-items: center; justify-content: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#113f32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>
+</span>
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 800; color: #16241f">¡Tu cita está agendada!</h2>
+<p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.6; color: #4d5a55">Enviamos la confirmación a <strong style="color: #1f2a26">{{f.email}}</strong>. Presenta tu código el día de la cita.</p>
+<div style="padding: 16px 28px; border-radius: 16px; background: #faf8f4; border: 1px dashed #c68b2c; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5b6662">Código de cita</span>
+<strong style="font-size: 26px; letter-spacing: 0.04em; color: #113f32">CIT-2026-000045</strong>
+</div>
+<p style="margin: 0; max-width: 520px; font-size: 14px; line-height: 1.6; color: #5b6662">Si no puedes asistir, comunícate con {{summary.dept}} al {{summary.tel}}. Recuerda llegar 5 minutos antes.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding-top: 8px">
+<a href="Main.dc.html" style="padding: 14px 24px; background: #113f32; border-radius: 999px; font-size: 15px; font-weight: 700; text-decoration: none; color: #ffffff">Volver al inicio</a>
+<button type="button" onClick="{{restart}}" style="padding: 14px 24px; background: #efe9dd; border: 0; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; color: #16241f">Agendar con otro departamento</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{showNav}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid #eef0ef">
+<button type="button" onClick="{{back}}" disabled="{{noBack}}" style="padding: 14px 22px; background: #ffffff; border: 1.5px solid #cfd6d3; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; color: #113f32; opacity: {{backOpacity}}">Atrás</button>
+<button type="button" onClick="{{forward}}" disabled="{{noForward}}" style="padding: 14px 28px; background: {{fwdBg}}; border: 0; border-radius: 999px; font-size: 15px; font-weight: 700; cursor: {{fwdCursor}}; color: #ffffff">{{fwdLabel}}</button>
+</div>
+</sc-if>
+</section>
+
+<aside style="flex: 1 1 300px; min-width: 0; background: #ffffff; border: 1px solid #e8ece9; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 800; color: #113f32">Resumen de tu cita</h2>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px"><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Sucursal</dt><dd style="margin: 0; font-size: 15px; font-weight: 600; color: #1f2a26">Quito</dd></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Departamento</dt><dd style="margin: 0; font-size: 15px; font-weight: 600; color: {{summary.deptColor}}">{{summary.dept}}</dd></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Fecha</dt><dd style="margin: 0; font-size: 15px; font-weight: 600; color: {{summary.dateColor}}">{{summary.date}}</dd></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><dt style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Hora</dt><dd style="margin: 0; font-size: 15px; font-weight: 600; color: {{summary.timeColor}}">{{summary.time}}</dd></div>
+</dl>
+<div style="padding: 14px; border-radius: 14px; background: #faf8f4; display: flex; gap: 10px; font-size: 13px; line-height: 1.55; color: #4d5a55">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a6a1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 12h1v5h1"></path></svg>
+<span>Puedes tener una cita pendiente por departamento. Para otro departamento, elige un horario distinto.</span>
+</div>
+</aside>
+</div>
+</main>
+
+<footer style="background: #0c2f25; color: #b9cbc4; padding: 24px">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px">
+<span>© 2026 Unidad Educativa Particular Técnica Cristiana “Vida Nueva”.</span>
+<span>Quito · Cojimíes · Ecuador</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      step: 1, dept: null, date: null, slot: null, tried: false,
+      f: { tipo: 'CEDULA', id: '', nombres: '', apellidos: '', email: '', tel: '', motivo: '', acepta: false }
+    };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var deptData = [
+      { id: 1, name: 'Secretaría', desc: 'Matrículas, certificados y documentos', tel: '[teléfono Secretaría]' },
+      { id: 2, name: 'Inspección', desc: 'Asistencia, disciplina y permisos', tel: '[teléfono Inspección]' },
+      { id: 3, name: 'DECE', desc: 'Consejería estudiantil y acompañamiento', tel: '[teléfono DECE]' },
+      { id: 4, name: 'Colecturía', desc: 'Pensiones, pagos y facturación', tel: '[teléfono Colecturía]' }
+    ];
+    var depts = deptData.map(function (d) {
+      var sel = st.dept === d.id;
+      return { name: d.name, desc: d.desc, sel: sel,
+        border: sel ? '2px solid #113f32' : '1px solid #e1e6e3', bg: sel ? '#f2f7f4' : '#ffffff',
+        pick: function () { self.setState({ dept: d.id, date: null, slot: null }); } };
+    });
+    var dayNames = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    var longDays = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+    var base = new Date(2026, 10, 12);
+    var dateData = [];
+    for (var i = 0; i <= 14; i++) {
+      var d = new Date(2026, 10, 12 + i);
+      var w = d.getDay();
+      if (w === 0 || w === 6) continue;
+      var closed = (d.getDate() === 20);
+      dateData.push({ key: d.getDate(), dow: i === 0 ? 'Hoy' : dayNames[w], day: d.getDate(), closed: closed,
+        long: longDays[w] + ' ' + d.getDate() + ' de noviembre', today: i === 0 });
+    }
+    var dates = dateData.map(function (x) {
+      var sel = st.date === x.key;
+      return { dow: x.dow, day: x.day, note: x.closed ? 'Cerrado' : (x.today ? 'Pocos turnos' : 'Disponible'),
+        off: x.closed, sel: sel, aria: x.long + (x.closed ? ', cerrado' : ''),
+        border: sel ? '2px solid #113f32' : '1px solid #e1e6e3',
+        bg: x.closed ? '#f3f4f4' : (sel ? '#113f32' : '#ffffff'),
+        color: x.closed ? '#8a9490' : (sel ? '#ffffff' : '#113f32'),
+        sub: x.closed ? '#6b7570' : (sel ? '#d7e3de' : '#5b6662'),
+        cursor: x.closed ? 'not-allowed' : 'pointer',
+        pick: function () { if (!x.closed) self.setState({ date: x.key, slot: null }); } };
+    });
+    var chosenDate = null;
+    dateData.forEach(function (x) { if (x.key === st.date) chosenDate = x; });
+    var times = ['14:00', '14:15', '14:30', '14:45', '15:00'];
+    var slots = times.map(function (t, k) {
+      var past = chosenDate && chosenDate.today && k < 3;
+      var seed = ((st.date || 0) + k) % 4;
+      var free = past ? 0 : (seed === 0 ? 0 : (seed === 1 ? 1 : 2));
+      var off = free === 0;
+      var sel = st.slot === t;
+      return { time: t, off: off, sel: sel,
+        note: past ? 'Ya pasó' : (free === 0 ? 'Sin cupo' : (free === 1 ? '1 cupo libre' : '2 cupos libres')),
+        border: sel ? '2px solid #113f32' : '1px solid #e1e6e3',
+        bg: off ? '#f3f4f4' : (sel ? '#113f32' : '#ffffff'),
+        color: off ? '#8a9490' : (sel ? '#ffffff' : '#113f32'),
+        sub: off ? '#6b7570' : (sel ? '#d7e3de' : (free === 1 ? '#9a6a1c' : '#2f6b55')),
+        cursor: off ? 'not-allowed' : 'pointer',
+        pick: function () { if (!off) self.setState({ slot: t }); } };
+    });
+    var f = st.f;
+    var setF = function (k, isBox) { return function (e) { var nf = Object.assign({}, self.state.f); nf[k] = isBox ? e.target.checked : e.target.value; self.setState({ f: nf }); }; };
+    var on = { tipo: setF('tipo'), id: setF('id'), nombres: setF('nombres'), apellidos: setF('apellidos'), email: setF('email'), tel: setF('tel'), motivo: setF('motivo'), acepta: setF('acepta', true) };
+    var req = ['id', 'nombres', 'apellidos', 'email', 'tel', 'motivo'];
+    var missing = req.filter(function (k) { return !String(f[k] || '').trim(); });
+    var emailBad = f.email && f.email.indexOf('@') < 1;
+    var bd = {};
+    req.forEach(function (k) { bd[k] = (st.tried && missing.indexOf(k) >= 0) || (st.tried && k === 'email' && emailBad) ? '#c0392b' : '#cfd6d3'; });
+    var errMsg = missing.length ? 'Completa los campos marcados en rojo.' : (emailBad ? 'Revisa el correo electrónico.' : (!f.acepta ? 'Debes aceptar el uso de tus datos para continuar.' : ''));
+    var step = st.step;
+    var labels = ['Departamento', 'Fecha y hora', 'Tus datos', 'Confirmación'];
+    var steps = labels.map(function (l, i) {
+      var n = i + 1, done = n < step, cur = n === step;
+      return { num: done ? '✓' : String(n), label: l,
+        bg: cur ? '#ffffff' : 'transparent', border: cur ? '#113f32' : '#e1e6e3',
+        dotBg: done || cur ? '#113f32' : '#e6eee9', dotColor: done || cur ? '#ffffff' : '#113f32',
+        color: cur ? '#113f32' : '#5b6662' };
+    });
+    var deptSel = null;
+    deptData.forEach(function (d) { if (d.id === st.dept) deptSel = d; });
+    var canFwd = (step === 1 && !!st.dept) || (step === 2 && !!st.slot) || step === 3;
+    return {
+      steps: steps, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      depts: depts, dates: dates, slots: slots, hasDate: !!st.date,
+      f: f, on: on, bd: bd, showErr: st.tried && !!errMsg, errMsg: errMsg,
+      summary: {
+        dept: deptSel ? deptSel.name : 'Sin elegir', tel: deptSel ? deptSel.tel : '',
+        deptColor: deptSel ? '#1f2a26' : '#8a9490',
+        date: chosenDate ? chosenDate.long.charAt(0).toUpperCase() + chosenDate.long.slice(1) : 'Sin elegir',
+        dateColor: chosenDate ? '#1f2a26' : '#8a9490',
+        time: st.slot ? st.slot + ' a ' + self.endTime(st.slot) : 'Sin elegir',
+        timeColor: st.slot ? '#1f2a26' : '#8a9490'
+      },
+      showNav: step < 4, noBack: step === 1, backOpacity: step === 1 ? '0.45' : '1',
+      noForward: !canFwd, fwdBg: canFwd ? '#9a6a1c' : '#c9c2b4', fwdCursor: canFwd ? 'pointer' : 'not-allowed',
+      fwdLabel: step === 3 ? 'Confirmar cita' : 'Continuar',
+      back: function () { if (self.state.step > 1) self.setState({ step: self.state.step - 1 }); },
+      forward: function () {
+        if (step === 3) {
+          if (errMsg) { self.setState({ tried: true }); return; }
+          self.setState({ step: 4, tried: false });
+          return;
+        }
+        if (canFwd) self.setState({ step: step + 1 });
+      },
+      restart: function () { self.setState({ step: 1, dept: null, date: null, slot: null, tried: false }); }
+    };
+  }
+  endTime(t) {
+    var p = t.split(':'); var m = parseInt(p[0], 10) * 60 + parseInt(p[1], 10) + 15;
+    var h = Math.floor(m / 60), mm = m % 60;
+    return h + ':' + (mm < 10 ? '0' : '') + mm;
+  }
+}
+</script>
+</body>
+</html>

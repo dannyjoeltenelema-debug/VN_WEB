@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inicio — U.E. Vida Nueva</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#113f32}a:hover{color:#0b2a21}
+.vn-burger{display:none}
+@media (max-width: 1100px){.vn-links,.vn-actions{display:none !important}.vn-burger{display:inline-flex !important}}
+@media (max-width: 640px){.vn-hero-title{font-size:40px !important}.vn-stat{padding-left:0 !important;border-left:0 !important}.vn-h2{font-size:28px !important}.vn-section{padding-top:56px !important;padding-bottom:56px !important}}
+</style>
+</helmet>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #1f2a26; background: #ffffff; width: 100%">
+
+<!-- ============ NAVBAR ============ -->
+<header style="position: sticky; top: 0; z-index: 20; background: #ffffff; border-bottom: 1px solid #e8ece9">
+<nav aria-label="Principal" style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="#inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<img src="/_blob/48735089b6f6eabe4ae27f9568c01e80" alt="Logo Unidad Educativa Vida Nueva" style="width: 48px; height: 48px; object-fit: contain">
+<span style="display: flex; flex-direction: column; line-height: 1.15">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Unidad Educativa</span>
+<span style="font-size: 18px; font-weight: 800; color: #113f32">Vida Nueva</span>
+</span>
+</a>
+<div class="vn-links" style="display: flex; align-items: center; gap: 4px">
+<a href="#inicio" style="padding: 10px 12px; font-size: 15px; font-weight: 600; text-decoration: none; color: #113f32; border-bottom: 2px solid #c68b2c">Inicio</a>
+<div style="position: relative">
+<button type="button" onClick="{{toggleDrop}}" aria-expanded="{{dropOpen}}" style="padding: 10px 12px; font-family: inherit; font-size: 15px; font-weight: 500; color: #34413c; background: transparent; border: 0; cursor: pointer; display: flex; align-items: center; gap: 6px">Institucional
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<sc-if value="{{dropOpen}}" hint-placeholder-val="{{false}}">
+<div style="position: absolute; top: 46px; left: 0; min-width: 240px; background: #ffffff; border: 1px solid #e8ece9; border-radius: 12px; box-shadow: 0 12px 32px rgba(17,63,50,0.10); padding: 8px; display: flex; flex-direction: column">
+<a href="#nosotros" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: #1f2a26">Nosotros</a>
+<a href="#exploradores" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: #1f2a26">Exploradores Vida Nueva</a>
+<a href="#sucursales" style="padding: 10px 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: #1f2a26">Sucursales</a>
+</div>
+</sc-if>
+</div>
+<a href="#admisiones" style="padding: 10px 12px; font-size: 15px; font-weight: 500; text-decoration: none; color: #34413c">Admisiones</a>
+<a href="#oferta" style="padding: 10px 12px; font-size: 15px; font-weight: 500; text-decoration: none; color: #34413c">Oferta académica</a>
+<a href="#anuncios" style="padding: 10px 12px; font-size: 15px; font-weight: 500; text-decoration: none; color: #34413c">Anuncios</a>
+<a href="#contacto" style="padding: 10px 12px; font-size: 15px; font-weight: 500; text-decoration: none; color: #34413c">Contacto</a>
+</div>
+<div class="vn-actions" style="display: flex; align-items: center; gap: 10px">
+<a href="#empleo" style="padding: 11px 18px; border: 1.5px solid #113f32; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; color: #113f32">Trabaja con nosotros</a>
+<a href="#cita" style="padding: 12px 20px; background: #9a6a1c; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; color: #ffffff">Agendar cita</a>
+</div>
+<button type="button" class="vn-burger" onClick="{{toggleMenu}}" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" style="width: 44px; height: 44px; align-items: center; justify-content: center; background: #f3f6f4; border: 0; border-radius: 10px; cursor: pointer; color: #113f32">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+</nav>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<div style="border-top: 1px solid #e8ece9; padding: 12px 24px 20px; display: flex; flex-direction: column; gap: 2px; background: #ffffff">
+<a href="#inicio" style="padding: 12px 4px; text-decoration: none; font-weight: 600; color: #113f32">Inicio</a>
+<span style="padding: 12px 4px 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6662">Institucional</span>
+<a href="#nosotros" style="padding: 10px 16px; text-decoration: none; color: #1f2a26">Nosotros</a>
+<a href="#exploradores" style="padding: 10px 16px; text-decoration: none; color: #1f2a26">Exploradores Vida Nueva</a>
+<a href="#sucursales" style="padding: 10px 16px; text-decoration: none; color: #1f2a26">Sucursales</a>
+<a href="#admisiones" style="padding: 12px 4px; text-decoration: none; color: #1f2a26">Admisiones</a>
+<a href="#oferta" style="padding: 12px 4px; text-decoration: none; color: #1f2a26">Oferta académica</a>
+<a href="#anuncios" style="padding: 12px 4px; text-decoration: none; color: #1f2a26">Anuncios</a>
+<a href="#contacto" style="padding: 12px 4px; text-decoration: none; color: #1f2a26">Contacto</a>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 12px">
+<a href="#cita" style="flex: 1 1 160px; text-align: center; padding: 13px 18px; background: #9a6a1c; border-radius: 999px; font-weight: 700; text-decoration: none; color: #ffffff">Agendar cita</a>
+<a href="#empleo" style="flex: 1 1 160px; text-align: center; padding: 12px 18px; border: 1.5px solid #113f32; border-radius: 999px; font-weight: 600; text-decoration: none; color: #113f32">Trabaja con nosotros</a>
+</div>
+</div>
+</sc-if>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="vn-section" style="padding: 72px 24px 88px; background: #faf8f4">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="align-self: flex-start; padding: 8px 16px; background: #e6eee9; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #113f32; display: inline-flex; align-items: center; gap: 8px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"></path><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg>
+Educación técnica con valores cristianos</span>
+<h1 class="vn-hero-title" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 60px; line-height: 1.1; font-weight: 800; letter-spacing: -0.01em; color: #16241f">Formando líderes con <span style="color: #1f6f55">excelencia académica</span> y valores sólidos</h1>
+<p style="margin: 0; max-width: 540px; font-size: 17px; line-height: 1.7; color: #4d5a55">Acompañamos a cada estudiante desde sus primeros años hasta el bachillerato técnico, con una formación que une conocimiento, tecnología y fe.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px">
+<a href="#cita" style="padding: 15px 26px; background: #9a6a1c; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; color: #ffffff; display: inline-flex; align-items: center; gap: 10px">Agendar una cita
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a href="#oferta" style="padding: 15px 26px; background: #efe9dd; border-radius: 999px; font-size: 16px; font-weight: 600; text-decoration: none; color: #16241f">Ver oferta académica</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 28px 0; padding-top: 20px">
+<div class="vn-stat" style="padding-right: 32px; display: flex; flex-direction: column; gap: 2px">
+<strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #113f32">900+</strong>
+<span style="font-size: 14px; color: #5b6662">Estudiantes</span>
+</div>
+<div class="vn-stat" style="padding: 0 32px; border-left: 1px solid #dcd5c7; display: flex; flex-direction: column; gap: 2px">
+<strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #113f32">50+</strong>
+<span style="font-size: 14px; color: #5b6662">Profesionales</span>
+</div>
+<div class="vn-stat" style="padding-left: 32px; border-left: 1px solid #dcd5c7; display: flex; flex-direction: column; gap: 2px">
+<strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #113f32">40+</strong>
+<span style="font-size: 14px; color: #5b6662">Años de trayectoria</span>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; position: relative; padding: 28px 0">
+<div role="img" aria-label="Espacio para fotografía institucional" style="height: 500px; border-radius: 28px; background: #e9e4d9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #5b6662">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7d8a84" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 8"></path></svg>
+<span style="font-size: 14px; font-weight: 600">Foto real: estudiantes, aula o taller técnico</span>
+</div>
+<div style="position: absolute; right: -16px; top: 0; background: #ffffff; border-radius: 16px; box-shadow: 0 14px 36px rgba(22,36,31,0.12); padding: 14px 18px; display: flex; align-items: center; gap: 14px">
+<span style="width: 44px; height: 44px; border-radius: 999px; background: #f7efe1; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a6a1c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5b6662">Bachillerato técnico</span>
+<strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #16241f">Preparados para el futuro</strong>
+</span>
+</div>
+<div style="position: absolute; left: -24px; bottom: 0; background: #ffffff; border-radius: 16px; box-shadow: 0 14px 36px rgba(22,36,31,0.12); padding: 14px 18px; display: flex; align-items: center; gap: 14px">
+<span style="width: 44px; height: 44px; border-radius: 999px; background: #e6eee9; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#113f32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 8h10"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5b6662">Formación cristiana</span>
+<strong style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #16241f">Valores para la vida</strong>
+</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ ANUNCIOS (carrusel) ============ -->
+<section id="anuncios" class="vn-section" style="padding: 72px 24px; background: #f8f9fa">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Anuncios</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Lo más reciente en Vida Nueva</h2>
+</div>
+<a href="#anuncios" style="font-size: 15px; font-weight: 700; text-decoration: none; color: #113f32; display: flex; align-items: center; gap: 8px">Ver todos los anuncios
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+<div style="position: relative; background: #ffffff; border: 1px solid #e8ece9; border-radius: 24px; padding: 16px">
+<div role="img" aria-label="{{slide.label}}" style="height: 420px; border-radius: 16px; background: {{slide.bg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 24px">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#5b6662" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 8"></path></svg>
+<strong style="font-size: 20px; color: #1f2a26">{{slide.title}}</strong>
+<span style="font-size: 14px; color: #4d5a55">Imagen PNG subida por Inspección · visible hasta {{slide.until}}</span>
+</div>
+<button type="button" onClick="{{prev}}" aria-label="Anuncio anterior" style="position: absolute; left: 32px; top: 50%; margin-top: -24px; width: 48px; height: 48px; border-radius: 999px; border: 1px solid #e8ece9; background: #ffffff; box-shadow: 0 6px 18px rgba(17,63,50,0.10); cursor: pointer; display: flex; align-items: center; justify-content: center; color: #113f32">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+</button>
+<button type="button" onClick="{{next}}" aria-label="Anuncio siguiente" style="position: absolute; right: 32px; top: 50%; margin-top: -24px; width: 48px; height: 48px; border-radius: 999px; border: 1px solid #e8ece9; background: #ffffff; box-shadow: 0 6px 18px rgba(17,63,50,0.10); cursor: pointer; display: flex; align-items: center; justify-content: center; color: #113f32">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</button>
+<div style="display: flex; justify-content: center; gap: 8px; padding-top: 16px">
+<sc-for list="{{dots}}" as="dot" hint-placeholder-count="3">
+<button type="button" onClick="{{dot.pick}}" aria-label="{{dot.label}}" style="width: {{dot.w}}; height: 10px; border-radius: 999px; border: 0; padding: 0; cursor: pointer; background: {{dot.bg}}"></button>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section id="nosotros" class="vn-section" style="padding: 88px 24px; background: #ffffff">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Nuestra propuesta</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Tres pilares que guían nuestra formación</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #eef3f0; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#113f32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9L12 4 2 9l10 5 10-5z"></path><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg>
+</span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Excelencia académica</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4d5a55">Docentes comprometidos y un bachillerato técnico que prepara para la universidad y el mundo laboral.</p>
+</article>
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #f7efe1; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9a6a1c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"></path></svg>
+</span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Formación en valores</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4d5a55">Educación cristiana que forma carácter, respeto y servicio a los demás en cada etapa.</p>
+</article>
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 52px; height: 52px; border-radius: 14px; background: #eef3f0; display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#113f32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-11 4 6 2-3 6 8H3z"></path><circle cx="16" cy="6" r="2"></circle></svg>
+</span>
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Club de Exploradores</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4d5a55">Actividades al aire libre que desarrollan liderazgo, trabajo en equipo y amor por la creación.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ============ OFERTA ACADÉMICA ============ -->
+<section id="oferta" class="vn-section" style="padding: 88px 24px; background: #f8f9fa">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Oferta académica</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Un camino completo de formación</h2>
+</div>
+<a href="#oferta" style="padding: 12px 22px; border: 1.5px solid #113f32; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; color: #113f32">Ver oferta completa</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<div role="img" aria-label="Espacio para fotografía de Educación Inicial" style="height: 180px; background: #eef3f0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #5b6662">Foto: Educación Inicial</div>
+<div style="padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Educación Inicial</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4d5a55">[Edades y breve descripción del nivel]</p>
+<a href="#oferta" style="padding-top: 6px; font-size: 15px; font-weight: 700; text-decoration: none; color: #9a6a1c">Conocer más →</a>
+</div>
+</article>
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<div role="img" aria-label="Espacio para fotografía de Educación General Básica" style="height: 180px; background: #eef3f0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #5b6662">Foto: Educación General Básica</div>
+<div style="padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Educación General Básica</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4d5a55">[Grados que comprende y breve descripción]</p>
+<a href="#oferta" style="padding-top: 6px; font-size: 15px; font-weight: 700; text-decoration: none; color: #9a6a1c">Conocer más →</a>
+</div>
+</article>
+<article style="background: #ffffff; border: 1px solid #e8ece9; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<div role="img" aria-label="Espacio para fotografía de Bachillerato Técnico" style="height: 180px; background: #eef3f0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #5b6662">Foto: Bachillerato Técnico</div>
+<div style="padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #113f32">Bachillerato Técnico</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4d5a55">[Figuras profesionales que ofrece la institución]</p>
+<a href="#oferta" style="padding-top: 6px; font-size: 15px; font-weight: 700; text-decoration: none; color: #9a6a1c">Conocer más →</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ============ ADMISIONES ============ -->
+<section id="admisiones" class="vn-section" style="padding: 88px 24px; background: #ffffff">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Admisiones</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Así es el proceso de admisión</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4d5a55">[Pasos de ejemplo: confirmar con Secretaría]</p>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px">
+<li style="border: 1px solid #e8ece9; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 40px; height: 40px; border-radius: 999px; background: #113f32; color: #ffffff; font-weight: 800; display: flex; align-items: center; justify-content: center">1</span>
+<strong style="font-size: 17px; color: #113f32">Agenda una cita informativa</strong>
+<span style="font-size: 14px; line-height: 1.6; color: #4d5a55">Elige el día y la hora en línea, sin registrarte.</span>
+</li>
+<li style="border: 1px solid #e8ece9; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 40px; height: 40px; border-radius: 999px; background: #113f32; color: #ffffff; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span>
+<strong style="font-size: 17px; color: #113f32">Presenta los requisitos</strong>
+<span style="font-size: 14px; line-height: 1.6; color: #4d5a55">[Documentos solicitados por la institución]</span>
+</li>
+<li style="border: 1px solid #e8ece9; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 40px; height: 40px; border-radius: 999px; background: #113f32; color: #ffffff; font-weight: 800; display: flex; align-items: center; justify-content: center">3</span>
+<strong style="font-size: 17px; color: #113f32">Entrevista y evaluación</strong>
+<span style="font-size: 14px; line-height: 1.6; color: #4d5a55">[Descripción del paso]</span>
+</li>
+<li style="border: 1px solid #e8ece9; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 40px; height: 40px; border-radius: 999px; background: #9a6a1c; color: #ffffff; font-weight: 800; display: flex; align-items: center; justify-content: center">4</span>
+<strong style="font-size: 17px; color: #113f32">Matrícula</strong>
+<span style="font-size: 14px; line-height: 1.6; color: #4d5a55">[Descripción del paso]</span>
+</li>
+</ol>
+<div><a href="#admisiones" style="display: inline-block; padding: 13px 24px; border: 1.5px solid #113f32; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; color: #113f32">Ver proceso completo y requisitos</a></div>
+</div>
+</section>
+
+<!-- ============ EXPLORADORES ============ -->
+<section id="exploradores" class="vn-section" style="padding: 88px 24px; background: #faf7f1">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; justify-content: center">
+<div style="width: 100%; max-width: 440px; aspect-ratio: 1 / 1; border-radius: 28px; background: #ffffff; border: 1px solid #ece4d4; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/c6ccc1dae6b6713b33c949d3f5c54db0" alt="Insignia del Club Exploradores Vida Nueva" style="width: 72%; height: 72%; object-fit: contain">
+</div>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Club interno</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Exploradores Vida Nueva</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4d5a55">Un espacio donde nuestros estudiantes aprenden fuera del aula: campamentos, caminatas y actividades al aire libre que fortalecen el liderazgo, el compañerismo y la fe.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="padding: 9px 16px; background: #ffffff; border: 1px solid #ece4d4; border-radius: 999px; font-size: 14px; font-weight: 600; color: #113f32">Campamentos</span>
+<span style="padding: 9px 16px; background: #ffffff; border: 1px solid #ece4d4; border-radius: 999px; font-size: 14px; font-weight: 600; color: #113f32">Excursiones</span>
+<span style="padding: 9px 16px; background: #ffffff; border: 1px solid #ece4d4; border-radius: 999px; font-size: 14px; font-weight: 600; color: #113f32">Liderazgo</span>
+<span style="padding: 9px 16px; background: #ffffff; border: 1px solid #ece4d4; border-radius: 999px; font-size: 14px; font-weight: 600; color: #113f32">Servicio comunitario</span>
+</div>
+<div style="padding-top: 8px"><a href="#exploradores" style="display: inline-block; padding: 14px 26px; background: #113f32; border-radius: 999px; font-size: 15px; font-weight: 700; text-decoration: none; color: #ffffff">Conocer el club</a></div>
+</div>
+</div>
+</section>
+
+<!-- ============ SUCURSALES ============ -->
+<section id="sucursales" class="vn-section" style="padding: 88px 24px; background: #ffffff">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9a6a1c">Sucursales</span>
+<h2 class="vn-h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.01em; color: #113f32">Dos sedes, una misma misión</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+<article style="border: 1px solid #e8ece9; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 800; color: #113f32">Quito</h3>
+<span style="padding: 6px 12px; background: #eef3f0; border-radius: 999px; font-size: 12px; font-weight: 700; color: #113f32">Atiende citas en línea</span>
+</div>
+<span style="font-size: 15px; color: #4d5a55">[Dirección de la sede Quito]</span>
+<span style="font-size: 15px; color: #4d5a55">[Teléfono] · [Correo]</span>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 6px">
+<a href="#sucursales" style="font-size: 15px; font-weight: 600; text-decoration: none; color: #113f32">Cómo llegar</a>
+</div>
+</article>
+<article style="border: 1px solid #e8ece9; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 800; color: #113f32">Cojimíes</h3>
+<span style="padding: 6px 12px; background: #f3f4f4; border-radius: 999px; font-size: 12px; font-weight: 700; color: #4d5a55">Atención presencial</span>
+</div>
+<span style="font-size: 15px; color: #4d5a55">[Dirección de la sede Cojimíes]</span>
+<span style="font-size: 15px; color: #4d5a55">[Teléfono] · [Correo]</span>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 6px">
+<a href="#sucursales" style="font-size: 15px; font-weight: 600; text-decoration: none; color: #113f32">Cómo llegar</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contacto" style="background: #0c2f25; color: #d7e3de; padding: 64px 24px 28px">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 52px; height: 52px; border-radius: 12px; background: #ffffff; display: flex; align-items: center; justify-content: center"><img src="/_blob/48735089b6f6eabe4ae27f9568c01e80" alt="Logo Unidad Educativa Vida Nueva" style="width: 42px; height: 42px; object-fit: contain"></span>
+<strong style="font-size: 17px; line-height: 1.3; color: #ffffff">U.E. Particular Técnica Cristiana Vida Nueva</strong>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #b9cbc4">Formando líderes con excelencia académica y valores sólidos.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<strong style="font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #e5c48a">Institución</strong>
+<a href="#nosotros" style="font-size: 15px; text-decoration: none; color: #d7e3de">Nosotros</a>
+<a href="#oferta" style="font-size: 15px; text-decoration: none; color: #d7e3de">Oferta académica</a>
+<a href="#admisiones" style="font-size: 15px; text-decoration: none; color: #d7e3de">Admisiones</a>
+<a href="#exploradores" style="font-size: 15px; text-decoration: none; color: #d7e3de">Exploradores Vida Nueva</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<strong style="font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #e5c48a">Servicios</strong>
+<a href="#cita" style="font-size: 15px; text-decoration: none; color: #d7e3de">Agendar cita</a>
+<a href="#empleo" style="font-size: 15px; text-decoration: none; color: #d7e3de">Trabaja con nosotros</a>
+<a href="#anuncios" style="font-size: 15px; text-decoration: none; color: #d7e3de">Anuncios</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<strong style="font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #e5c48a">Contacto</strong>
+<span style="font-size: 15px; color: #d7e3de">Quito: [Teléfono]</span>
+<span style="font-size: 15px; color: #d7e3de">Cojimíes: [Teléfono]</span>
+<span style="font-size: 15px; color: #d7e3de">[Correo institucional]</span>
+<div style="display: flex; gap: 10px; padding-top: 6px">
+<a href="#contacto" aria-label="Facebook" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #2c5a4c; display: flex; align-items: center; justify-content: center; color: #ffffff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"></path></svg></a>
+<a href="#contacto" aria-label="Instagram" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #2c5a4c; display: flex; align-items: center; justify-content: center; color: #ffffff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg></a>
+<a href="#contacto" aria-label="WhatsApp" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #2c5a4c; display: flex; align-items: center; justify-content: center; color: #ffffff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"></path></svg></a>
+</div>
+</div>
+</div>
+<div style="border-top: 1px solid #2c5a4c; padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #a9bdb5">
+<span>© 2026 Unidad Educativa Particular Técnica Cristiana “Vida Nueva”. Todos los derechos reservados.</span>
+<span>Quito · Cojimíes · Ecuador</span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { idx: 0, dropOpen: false, menuOpen: false };
+  }
+  renderVals() {
+    var slides = [
+      { title: 'Anuncio 1 — Inicio de matrículas', label: 'Ejemplo de anuncio: inicio de matrículas', bg: '#eef3f0', until: '30/11/2026' },
+      { title: 'Anuncio 2 — Campamento de Exploradores', label: 'Ejemplo de anuncio: campamento de exploradores', bg: '#faf3e6', until: '15/12/2026' },
+      { title: 'Anuncio 3 — Comunicado institucional', label: 'Ejemplo de anuncio: comunicado institucional', bg: '#eef1f6', until: '20/12/2026' }
+    ];
+    var self = this;
+    var idx = this.state.idx;
+    var n = slides.length;
+    var dots = slides.map(function (s, i) {
+      return {
+        label: 'Ir al anuncio ' + (i + 1),
+        w: i === idx ? '28px' : '10px',
+        bg: i === idx ? '#113f32' : '#c9d3cf',
+        pick: function () { self.setState({ idx: i }); }
+      };
+    });
+    return {
+      slide: slides[idx],
+      dots: dots,
+      prev: function () { self.setState({ idx: (idx + n - 1) % n }); },
+      next: function () { self.setState({ idx: (idx + 1) % n }); },
+      dropOpen: this.state.dropOpen,
+      menuOpen: this.state.menuOpen,
+      toggleDrop: function () { self.setState({ dropOpen: !self.state.dropOpen }); },
+      toggleMenu: function () { self.setState({ menuOpen: !self.state.menuOpen }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
